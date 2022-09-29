@@ -3,6 +3,8 @@ import Home from "./Home";
 import Signin from "./Signin";
 import CompanyReviews from "./CompanyReviews";
 import SalaryGuide from "./SalaryGuide";
+import Employers from "./Employers";
+
 export default function AllRoutes() {
   return (
     <Routes>
