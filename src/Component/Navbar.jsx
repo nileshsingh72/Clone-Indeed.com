@@ -44,6 +44,7 @@ export default function Navbar() {
           </Link>
         </Flex>
       </Flex>
+      <hr />
     </>
   );
 }
