@@ -1,5 +1,6 @@
 import { Box, Select, Flex, Stack, Button, Text, Link } from "@chakra-ui/react";
 import Footer from "./Footer";
+import JobFeed from "../Component/JobFeed";
 export default function Home() {
   return (
     <>
@@ -66,14 +67,8 @@ export default function Home() {
           - Your next hire is here
         </Text>
       </Flex>
+      <JobFeed />
       <Footer />
     </>
   );
-}
-
-{
-  /* <Select>
-  <option value="option1">Option 1</option>
-  <option value="option2">Option 2</option>
-</Select>; */
 }
