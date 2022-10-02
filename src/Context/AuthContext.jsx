@@ -1,11 +1,11 @@
-import { useRef } from "react";
+import { useState } from "react";
 import { Children, createContext } from "react";
 export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
-  const authenticate = useRef();
+  const [Auth, setAuth] = useState(false);
 
   return (
-    <AuthContext.Provider value={{ authenticate: authenticate }}>
+    <AuthContext.Provider value={{ Auth: Auth, setAuth, setAuth }}>
       {children}
     </AuthContext.Provider>
   );
