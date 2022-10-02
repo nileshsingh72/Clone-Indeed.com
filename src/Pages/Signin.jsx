@@ -1,4 +1,5 @@
 import { AuthContext } from "../Context/AuthContext";
+import { Navigate } from "react-router-dom";
 import {
   Flex,
   Box,
@@ -12,7 +13,7 @@ import {
   Heading,
   Text,
   Image,
-  useColorModeValue,
+  // useColorModeValue,
 } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import axios from "axios";
@@ -20,29 +21,32 @@ import axios from "axios";
 export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { authenticate } = useContext(AuthContext);
+  const { Auth, setAuth } = useContext(AuthContext);
   function login() {
     axios
       .post(`https://reqres.in/api/login`, {
         email: email,
         password: password,
       })
-      .then((res) => (authenticate.current = res.data.token))
+      .then((res) => setAuth(true))
       .catch((err) => console.log(err));
-
-    console.log("last", authenticate.current);
   }
-  console.log("check", authenticate.current);
+  console.log("dvdfhgtghfn", Auth);
+
   const handleLogin = () => {
     login();
   };
-  console.log(authenticate.current, "is here congrulation ");
+
+  if (Auth) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <Flex
       minH={"100vh"}
       align={"center"}
       justify={"center"}
-      bg={useColorModeValue("gray.50", "gray.800")}
+      // bg={useColorModeValue("gray.50", "gray.800")}
     >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
@@ -54,7 +58,7 @@ export default function Signin() {
         </Stack>
         <Box
           rounded={"lg"}
-          bg={useColorModeValue("white", "gray.700")}
+          // bg={useColorModeValue("white", "gray.700")}
           boxShadow={"lg"}
           p={8}
         >

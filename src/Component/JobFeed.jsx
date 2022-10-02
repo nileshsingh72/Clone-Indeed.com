@@ -1,13 +1,13 @@
-import { Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Button, Flex, Grid, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import Right from "./Right";
 import Left from "./Left";
-export default function () {
+export default function ({ data }) {
   return (
     <>
       <Flex
         py={5}
         mt={9}
-        border={"1px solid black"}
+        borderBottom={"1px solid black"}
         justify="center"
         alignItems={"center"}
       >
@@ -24,13 +24,9 @@ export default function () {
           New
         </Button>
       </Flex>
-      <Flex
-        border={"1px solid red"}
-        bg="#faf9f8"
-        px={"10%"}
-        justify="space-between"
-      >
-        <Left />
+
+      <Flex bg="#faf9f8" px={"15%"} justify="space-between">
+        <Left data2={data} />
         <Right />
       </Flex>
     </>
