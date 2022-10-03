@@ -18,14 +18,17 @@ export default function Home() {
     }
     setLoading(true);
     return axios
-      .get(`http://localhost:3040/jobs?place=${location}&role=${role}`)
+      .get(
+        `https://secure-stream-88434.herokuapp.com/jobs?place=${location}&role=${role}`
+      )
       .then((response) => {
         setLoading(false);
         return setData(response.data);
       })
       .catch((err) => console.error(err));
   };
-  console.log(loading, "checkLLl");
+  // console.log(loading, "checkLLl");
+  //checkedand anf final
   useEffect(() => {
     getdata(location, role);
   }, [location, role]);

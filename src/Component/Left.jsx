@@ -14,7 +14,7 @@ export default function Left({ data2 }) {
 
   const mainDatafunc = (id) => {
     axios
-      .get(`http://localhost:3040/jobs/${id}`)
+      .get(`https://secure-stream-88434.herokuapp.com/jobs/${id}`)
       .then((response) => setRdata(response.data))
       .catch((err) => console.error(err));
   };
